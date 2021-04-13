@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIProgressView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yM-Oa-WgA">
+                                <rect key="frame" x="20" y="89" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-BA-PwK">
+                                <rect key="frame" x="20" y="140" width="374" height="622"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Managing the Keyboard
+When the user taps in an editable text view, that text view becomes the first responder and automatically asks the system to display the associated keyboard. Because the appearance of the keyboard has the potential to obscure portions of your user interface, it is up to you to make sure that does not happen by repositioning any views that might be obscured. Some system views, like table views, help you by scrolling the first responder into view automatically. If the first responder is at the bottom of the scrolling region, however, you may still need to resize or reposition the scroll view itself to ensure the first responder is visible.
+It is your application’s responsibility to dismiss the keyboard at the time of your choosing. You might dismiss the keyboard in response to a specific user action, such as the user tapping a particular button in your user interface. To dismiss the keyboard, send the resignFirstResponder() message to the text view that is currently the first responder. Doing so causes the text view object to end the current editing session (with the delegate object’s consent) and hide the keyboard.
+The appearance of the keyboard itself can be customized using the properties provided by the UITextInputTraits protocol. Text view objects implement this protocol and support the properties it defines. You can use these properties to specify the type of keyboard (ASCII, Numbers, URL, Email, and others) to display. You can also configure the basic text entry behavior of the keyboard, such as whether it supports automatic capitalization and correction of the text.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4Ox-Px-gJH">
+                                <rect key="frame" x="300" y="83" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="nnh-Pj-pXR"/>
+                                </connections>
+                            </stepper>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zXn-5f-fsl">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9bw-vR-zAG">
+                                <rect key="frame" x="20" y="140" width="374" height="4"/>
+                            </progressView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="4Ox-Px-gJH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="0Pl-eK-a1x"/>
+                            <constraint firstItem="BJ0-BA-PwK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9EC-Fj-wx3"/>
+                            <constraint firstItem="3yM-Oa-WgA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AmQ-O2-u7X"/>
+                            <constraint firstItem="BJ0-BA-PwK" firstAttribute="top" secondItem="3yM-Oa-WgA" secondAttribute="bottom" constant="30" id="IQw-sg-aZ7"/>
+                            <constraint firstItem="9bw-vR-zAG" firstAttribute="top" secondItem="BJ0-BA-PwK" secondAttribute="top" id="OdZ-LD-F9X"/>
+                            <constraint firstItem="zXn-5f-fsl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ga6-6s-WNA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3yM-Oa-WgA" secondAttribute="trailing" constant="383" id="gb9-bx-vkE"/>
+                            <constraint firstItem="9bw-vR-zAG" firstAttribute="centerX" secondItem="BJ0-BA-PwK" secondAttribute="centerX" id="pug-7n-gXH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BJ0-BA-PwK" secondAttribute="bottom" constant="100" id="qc0-jQ-ukt"/>
+                            <constraint firstItem="zXn-5f-fsl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qhL-U8-MZw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BJ0-BA-PwK" secondAttribute="trailing" constant="20" id="rJI-aA-1Kh"/>
+                            <constraint firstItem="9bw-vR-zAG" firstAttribute="width" secondItem="BJ0-BA-PwK" secondAttribute="width" id="sTt-Vs-K9E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Ox-Px-gJH" secondAttribute="trailing" constant="20" id="uyB-K6-Aal"/>
+                            <constraint firstItem="3yM-Oa-WgA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="vfP-6G-U8e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="zXn-5f-fsl" id="ce8-7s-gF2"/>
+                        <outlet property="bottomConstraint" destination="qc0-jQ-ukt" id="tsh-rb-J3X"/>
+                        <outlet property="label" destination="3yM-Oa-WgA" id="IRh-XW-YdA"/>
+                        <outlet property="progressView" destination="9bw-vR-zAG" id="gXd-UG-dbA"/>
+                        <outlet property="stepper" destination="4Ox-Px-gJH" id="t4I-Hf-24i"/>
+                        <outlet property="textView" destination="BJ0-BA-PwK" id="hLk-Hl-zyA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1.4492753623188408" y="57.589285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
